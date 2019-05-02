@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :gossip #ok
+  resources :home
+  root 'home#index'
+  resources :welcome
+  resources :contact
+  resources :user
+  resources :team
+  resources :city
+  resources :comment
+
 end

@@ -1,24 +1,20 @@
-# README
+# Rails - The Gossip Project
+Created by Armony, Bano and Ayuma
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This awesome app runs a proper website with links to different gossips and their authors!
 
-Things you may want to cover:
+Things you may want to install beforehand:
 
-* Ruby version
+* Clone the repository:
+```
+$git clone
+```
+* Install gems
+```
+$bundle install
+```
+* Rails command to create the database
+```
+$rails db:create && rails db:migrate && rails db:seed
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

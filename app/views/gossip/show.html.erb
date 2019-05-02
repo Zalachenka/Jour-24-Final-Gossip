@@ -1,0 +1,29 @@
+<h1>Gossip</h1>
+<p>Title : <%= @gossip.title %></p>
+<p>Author: <a href="/user/<%= @gossip.user_id %>"><%= @gossip.user.first_name %></a></p>
+<p>Creation date: <%= @gossip.created_at%></p>
+</br>
+<p>Content: <%= @gossip.content %></p>
+</br>
+<p>City of this gossip : <a href="/city/<%= @gossip.user.city_id %>"><%= @gossip.user.city.name %></a></p>
+</br>
+<p>Edit this gossip : <a href="<%= edit_gossip_path(@gossip.id) %>">Lien pour editer ce gossip</a></p>
+<a href="<%= %>" class="btn btn-secondary" data-method="DELETE">Delete this gossip</a>
+</br>
+
+<h3>zone de commentaire</h3>
+</br>
+
+<h4 class="display-5">Espace commentaires :</h4>
+         <div class="container">
+           <div class="comment">
+             <%= form_tag url_for(:controller => 'comment', :action => 'create', :id => @gossip.id, gossip_id: params[:id]), method: "post" do %>
+             <div class="comment-item">
+               <%= text_area_tag 'comment_content', "Whatever you want ..." %>
+             </div>
+             <div class="comment-validation">
+               <%= submit_tag "Comment" %>
+             </div>
+             <% end %>
+           </div>
+         </div>

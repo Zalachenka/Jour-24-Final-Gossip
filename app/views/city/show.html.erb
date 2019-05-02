@@ -1,0 +1,38 @@
+<h1>City</h1>
+<p>All Gossips from '
+  <%= @city.name %>
+  ' are here!</p>
+
+<!-- DEBUT CARD HEARDER -->
+<div class="row">
+  <% @city.users.each do |user| %>
+    <% user.gossips.each do |gossip| %>
+
+      <div class="col-md-4">
+
+        <div class="card-deck mb-3 text-center">
+
+          <div class="card card-accent-dark mb-3" style="max-width: 20rem;">
+            <div class="card-header">Author :
+              <%= user.first_name %>
+            </div>
+            <div class="card-body">
+              <p>
+                Title: **
+                <%= gossip.title %>
+                <%= %>
+                **<br/>
+                Content : **
+                <%= gossip.content %>
+                **<br/>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
+<!-- FIN CARD HEADER -->

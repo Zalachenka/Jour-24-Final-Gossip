@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+.card-deck {
+  margin: 10px;
+
+}
+.btn {
+  background-color: #dbdbdb;
+}
+h1 {
+  color: #28313e;
+}
+li {
+  color: #257eff;
+}

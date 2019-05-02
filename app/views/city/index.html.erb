@@ -1,0 +1,20 @@
+<h1>Welcome to the page of The Gossip from this city !</h1>
+
+
+<% @city.each do | city| %>
+
+          <p>
+            nom de la ville: **
+            <%= city.name %>
+            <%= %>
+            **<br/>
+            Le code postal : **
+            <%= city.zip_code %>
+            **<br/>
+          </p>
+          <button type="button" class="btn btn-pill btn-secondary">
+            <a href="/gossip/<%=1 %>">Lien vers ce gossip</a>
+          </button>
+
+
+<% end %>

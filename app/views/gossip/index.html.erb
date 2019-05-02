@@ -1,0 +1,33 @@
+<h1>All Gossips are here!</h1>
+
+<!-- DEBUT CARD HEARDER -->
+<div class="row">
+<% @gossip.each do | gossip| %>
+  <div class="col-md-4">
+
+    <div class="card-deck mb-3 text-center">
+
+      <div class="card card-accent-dark mb-3" style="max-width: 20rem;">
+        <div class="card-header">Gossip
+          <%=gossip.id %></div>
+        <div class="card-body">
+          <p>
+            Son auteur : **
+            <%= gossip.user.first_name %>
+            <%= %>
+            **<br/>
+            Le titre du potin : **
+            <%= gossip.title %>
+            **<br/>
+          </p>
+          <button type="button" class="btn btn-pill btn-secondary">
+            <a href="<%= gossip_path(gossip.id) %>">Lien vers ce gossip</a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+</div>
+<!-- FIN CARD HEADER -->
