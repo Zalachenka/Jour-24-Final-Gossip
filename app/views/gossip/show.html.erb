@@ -8,7 +8,7 @@
 <p>City of this gossip : <a href="/city/<%= @gossip.user.city_id %>"><%= @gossip.user.city.name %></a></p>
 </br>
 <p><a href="<%= edit_gossip_path(@gossip.id) %>">Edit this gossip</a></p>
-<a href="<%= %>" class="btn btn-secondary" data-method="DELETE">Delete this gossip</a>
+<a href="<%= %>" class="btn btn-danger" data-method="DELETE">Delete this gossip</a>
 </br>
 
 <h3>Comment section</h3>
@@ -29,6 +29,8 @@
                 <%= comment.content %>
                 **<br/>
               </p>
+              <p><a href="<%= edit_gossip_comment_path(@gossip.id, comment.id) %>">Edit comment</a></p>
+<a href="<%= gossip_comment_path(@gossip.id, comment.id)%>" class="btn btn-secondary" data-method="DELETE">Delete comment</a>
 
             </div>
           </div>

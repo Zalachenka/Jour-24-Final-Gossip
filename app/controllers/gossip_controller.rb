@@ -53,6 +53,6 @@ class GossipController < ApplicationController
   private
 
   def gossip_params
-   puts params.require(:gossip).permit(:title, :content)
+   params.require(:gossip).permit(:title, :content)
   end
 end

@@ -21,7 +21,7 @@ class CommentController < ApplicationController
    @comment = Comment.create(content: params[:comment_content], gossip: @gossip, author: @author)
 
       if @comment.save!
-        redirect_to home_index_path 
+        redirect_to gossip_path(@gossip.id) 
         flash[:success] = "Comment successfully added!"#, success: 'The super potin was succesfully saved !'
         puts params
       else
@@ -32,17 +32,33 @@ class CommentController < ApplicationController
   end
 
   def update
+     @gossip = Gossip.find(params[:gossip_id])
     @comment = Comment.find(params[:id])
-    if @comment.update(content: params[:content], author: @comment.author, gossip: @comment.gossip)
-      redirect_to '/'
+    if @comment.update(comment_params)
+        redirect_to gossip_path(@gossip.id)
     else
       render :edit
     end
   end
 
+  def edit
+   @comment = Comment.find(params[:id])
+
+  end
+
+  def destroy
+  @gossip = Gossip.find(params[:gossip_id])
+  @comment = Comment.find(params[:id])
+
+
+  @comment.destroy
+  flash[:alert] = "Comment deleted! 🗑️"
+  redirect_to gossip_path(@gossip.id)
+  end
+
   private
 
   def comment_params
-    puts comment_params.(:comment).permit(:content, :author, :gossip)
+    params.require(:comment).permit(:content, :author, :gossip)
   end
 end
