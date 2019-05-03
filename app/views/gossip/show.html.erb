@@ -21,7 +21,7 @@
 
           <div class="card card-accent-dark mb-3" style="max-width: 20rem;">
             <div class="card-header">Author :
-              <%= author.first_name %>
+              <%= comment.author.first_name %>
             </div>
             <div class="card-body">
               <p>
@@ -42,7 +42,7 @@
 <h4 class="display-5">Comment here :</h4>
          <div class="container">
            <div class="comment">
-             <%= form_tag url_for(:controller => 'comment', :action => 'create', :id => @gossip.id, gossip_id: params[:id]), method: "post" do %>
+             <%= form_tag url_for(:controller => 'comment', :action => 'create', gossip_id: params[:id]), method: "post" do %>
              <div class="comment-item">
                <%= text_area_tag 'comment_content', "Whatever you want ..." %>
              </div>

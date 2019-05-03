@@ -16,16 +16,17 @@ class CommentController < ApplicationController
 
 
   def create
-    @gossip = Gossip.find(params[:id])
+    @gossip = Gossip.find(params[:gossip_id])
     @author= User.create!(first_name: "John Doe", city_id: 1)
-   @comment = Comment.new(content: params[:content], author: @author, gossip: @gossip)
+   @comment = Comment.create(content: params[:comment_content], gossip: @gossip, author: @author)
 
-      if @comment.save
-        redirect_to home_index_path #, success: 'The super potin was succesfully saved !'
+      if @comment.save!
+        redirect_to home_index_path 
+        flash[:success] = "Comment successfully added!"#, success: 'The super potin was succesfully saved !'
         puts params
       else
         redirect_to @comment.gossip  #, danger: 'Error : you need to complete this field '
-        puts 'Gossip is invalid'
+        puts 'Comment is invalid'
 
       end
   end
@@ -42,6 +43,6 @@ class CommentController < ApplicationController
   private
 
   def comment_params
-    comment_params.(:comment).permit(:content, :author, :gossip)
+    puts comment_params.(:comment).permit(:content, :author, :gossip)
   end
 end
