@@ -7,14 +7,39 @@
 </br>
 <p>City of this gossip : <a href="/city/<%= @gossip.user.city_id %>"><%= @gossip.user.city.name %></a></p>
 </br>
-<p>Edit this gossip : <a href="<%= edit_gossip_path(@gossip.id) %>">Lien pour editer ce gossip</a></p>
+<p><a href="<%= edit_gossip_path(@gossip.id) %>">Edit this gossip</a></p>
 <a href="<%= %>" class="btn btn-secondary" data-method="DELETE">Delete this gossip</a>
 </br>
 
-<h3>zone de commentaire</h3>
+<h3>Comment section</h3>
+ <div class="row">
+    <% @gossip.comments.each do |comment| %>
+
+      <div class="col-md-4">
+
+        <div class="card-deck mb-3 text-center">
+
+          <div class="card card-accent-dark mb-3" style="max-width: 20rem;">
+            <div class="card-header">Author :
+              <%= author.first_name %>
+            </div>
+            <div class="card-body">
+              <p>
+                Content : **
+                <%= comment.content %>
+                **<br/>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+</div>
 </br>
 
-<h4 class="display-5">Espace commentaires :</h4>
+<h4 class="display-5">Comment here :</h4>
          <div class="container">
            <div class="comment">
              <%= form_tag url_for(:controller => 'comment', :action => 'create', :id => @gossip.id, gossip_id: params[:id]), method: "post" do %>

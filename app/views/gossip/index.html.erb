@@ -12,16 +12,16 @@
           <%=gossip.id %></div>
         <div class="card-body">
           <p>
-            Son auteur : **
+            Author : **
             <%= gossip.user.first_name %>
             <%= %>
             **<br/>
-            Le titre du potin : **
+            Gossip title : **
             <%= gossip.title %>
             **<br/>
           </p>
           <button type="button" class="btn btn-pill btn-secondary">
-            <a href="<%= gossip_path(gossip.id) %>">Lien vers ce gossip</a>
+            <a href="<%= gossip_path(gossip.id) %>">Read more >></a>
           </button>
         </div>
       </div>
